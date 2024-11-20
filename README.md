@@ -1,2 +1,2 @@
-# Responzivn-str-nka
+# Responzivni stranka
 Můj projekt z Engeto Front-end development akademie
