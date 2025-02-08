@@ -1,2 +1,2 @@
 # Responzivni stranka
-Můj projekt z Engeto Front-end development akademie
+Můj 1. projekt z Engeto Front-end development akademie
