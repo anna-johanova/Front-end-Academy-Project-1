@@ -1,0 +1,561 @@
+/* 
+Project: Responzivní webová stránka
+Autor: annajohanova_75116
+E-mail: a.johanova@seznam.cz
+Popis: Vytvoření stránky, která bude mít 3 základní layouty
+*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --dark-background-color: #33292a;
+  --light-background-color: #f2f2f2;
+  --brown-background-color: #644b4f;
+  --footer-background-color: #333333;
+  --text-color-light: #fff;
+  --anchor-color-1: #efa69d;
+  --anchor-color-2: #e9877b;
+  --nav-height: 40px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif; /*Nastavení výchozího fontu Roboto*/
+}
+
+/* NAVIGATION */
+.navigation {
+  background-color: var(--dark-background-color);
+  position: relative; /*nastavení pozice relative pro pozicování hamburger menu s třídou .menu-icon img*/
+}
+
+.navigation-list {
+  display: none; /*nastavení skrytí navigace na mobiním zařízení, nahrazeno hamburger menu*/
+}
+
+.navigation ul {
+  list-style-type: none; /*odstranění markeru z položek listu*/
+  padding-left: 0; /*odstranění odsazení markeru z položek listu*/
+}
+
+.navigation-item a {
+  text-decoration: none; /*odstranění výchozího formátování odkazů*/
+  color: var(--text-color-light);
+}
+
+.navigation-item a:link,
+.navigation-item a:visited {
+  /*nastavení linku a visited pro položky navigace*/
+  color: var(--text-color-light);
+  border-bottom: 2px solid transparent;
+}
+
+.navigation-item a:hover,
+.navigation-item a:active {
+  /*nastavení hoveru a active pro položky navigace*/
+  border-bottom: 2px solid var(--anchor-color-2);
+  transition: border-bottom 1s;
+}
+
+.menu-icon {
+  /*nastavení paddingu na ikonu menu*/
+  padding: 20px;
+}
+
+.menu-icon img {
+  cursor: pointer;
+  position: absolute; /*pozicování ikony menu vůči elementu s třídou .navigation*/
+  right: 5%;
+  top: 15%;
+}
+
+@media (min-width: 768px) {
+  /*stejné jako pro mobilní zařízení*/
+}
+
+@media (min-width: 992px) {
+  .navigation-list {
+    /*definice navigace*/
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+
+  .menu-icon {
+    display: none; /*skrytí ikonky hamburger menu pro desktop*/
+  }
+}
+
+/* HERO */
+.hero {
+  background-image: url("images/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg");
+  height: calc(
+    100vh - var(--nav-height)
+  ); /*nastavení výšky obrázku na 100% viewportu s odečtením výšky navigační lišty*/
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative; /*nastavení pozice relativ pro pozicování textu Hero sekce s třídou .hero-text */
+}
+
+.hero-wrapper {
+  width: 70%; /*nastavení šířky obsahu pro 70% displeje*/
+}
+
+.hero-text {
+  color: var(--text-color-light);
+  font-weight: bold;
+  font-size: 2rem;
+  word-break: break-all; /*zalamování textu po slovech na další řádek */
+  position: absolute; /*pozicování vůči elementu s třídou .hero*/
+  text-align: right;
+  right: 15%; /*zarovnání textu, 70 % výchozí šířka obsahu, tj. 30 % : 2 pro každou stranu*/
+  bottom: 5%;
+}
+
+@media (min-width: 768px) {
+  /*stejné jako pro mobilní zařízení, liší se pouze font-size*/
+  .hero-text {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 992px) {
+  /*stejné jako pro @media (min-width: 768px), liší se pouze font-size*/
+  .hero-text {
+    font-size: 5rem;
+  }
+}
+
+/* ABOUT US INFO */
+.about-us {
+  width: 70%; /*určení šířky obsahu*/
+  margin: 0 auto; /*zarovnání obsahu na střed*/
+}
+
+.about-us-wrapper {
+  margin-bottom: 50px;
+}
+
+.about-us-text h2 {
+  margin-top: 30px;
+}
+
+.about-us-text p {
+  margin-top: 25px;
+}
+
+.about-us-image img {
+  border-radius: 10px;
+  margin-top: 30px;
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .about-us-wrapper {
+    /*nastavení flexboxu pro zobrazení na displejích s (min-width: 768px)*/
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: stretch;
+  }
+
+  .about-us-text,
+  .about-us-image {
+    flex: 1; /*rozdělení obsahu flexboxu do dvou stejně širokých sloupců*/
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-us-image {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .about-us-image img {
+    height: 100%;
+    /* object-fit: cover; */
+    /* object-position: center; */
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+/* WHAT WE DO */
+.what-we-do {
+  background-color: var(--dark-background-color);
+  color: var(--text-color-light);
+  padding: 50px 0 25px 0;
+}
+
+.what-we-do-wrapper {
+  width: 70%; /*určení šířky obsahu*/
+  margin: 0 auto; /*zarovnání obsahu na střed*/
+}
+
+.what-we-do-text {
+  text-align: center;
+}
+
+.what-we-do-icons {
+  display: flex; /*nastavení flexboxu*/
+  flex-direction: column;
+  margin: 0 auto; /*zarovnání na střed*/
+}
+
+.what-we-do-text p {
+  margin: 25px 0 50px 0;
+}
+
+.what-we-do-icon-1, /*nastavení flexboxu na ikony a texty*/
+.what-we-do-icon-2,
+.what-we-do-icon-3,
+.what-we-do-icon-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.what-we-do-icon-1 img,
+.what-we-do-icon-2 img,
+.what-we-do-icon-3 img,
+.what-we-do-icon-4 img {
+  width: 25%;
+  align-self: center; /*zarovnání ikon na střed*/
+}
+
+.what-we-do-icons p {
+  margin: 25px 0 50px 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .what-we-do-icons {
+    flex-direction: row; /*změna směru flexboxu divů pro tablet a desktop*/
+  }
+
+  .what-we-do-icon-1,
+  .what-we-do-icon-2,
+  .what-we-do-icon-3,
+  .what-we-do-icon-4 {
+    flex-direction: column; /*změna směru flexboxu ikony a textu pro tablet a desktop*/
+  }
+
+  .what-we-do-icon-1 img,
+  .what-we-do-icon-2 img,
+  .what-we-do-icon-3 img,
+  .what-we-do-icon-4 img {
+    width: 4.5rem;
+  }
+
+  .what-we-do-icon-1 {
+    margin-left: 0; /*odstranění marginu u položky aby se zarovnaly na kraj stránky*/
+  }
+
+  .what-we-do-icon-4 {
+    margin-right: 0; /*odstranění marginu u položky aby se zarovnaly na kraj stránky*/
+  }
+
+  .what-we-do-icons p {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+/* OUR TRIPS */
+.our-trips-wrapper {
+  width: 100%; /*určení šířky obsahu*/
+  padding: 40px;
+  margin: 0 auto; /*zarovnání obsahu na střed*/
+}
+
+.our-trips-gallery {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 80px 1fr 1fr 1fr 1fr; /*definování počtu a velikosti řádků gridu*/
+  grid-template-columns: 1fr; /*definování počtu a velikosti sloupců gridu*/
+  place-items: center;
+  grid-row-gap: 15px;
+}
+
+.our-trips-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .our-trips-wrapper {
+    width: 70%; /*určení šířky obsahu*/
+    margin: 0 auto; /*zarovnání obsahu na střed*/
+    padding: 30px 0 30px 0;
+  }
+  .our-trips-gallery {
+    grid-template-rows: repeat(
+      3,
+      1fr
+    ); /*definování počtu a velikosti řádků gridu*/
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /*definování počtu a velikosti sloupců gridu*/
+    grid-gap: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+/* CONTACT US */
+.contacts {
+  background-color: var(--brown-background-color);
+  color: var(--text-color-light);
+  padding: 50px 0 5px 0;
+}
+
+.contact-wrapper {
+  width: 70%; /*určení šířky obsahu*/
+  margin: 0 auto; /*zarovnání obsahu na střed*/
+  display: grid;
+  grid-template-columns: 1fr; /*definování počtu a velikosti sloupců gridu*/
+  grid-template-rows: 0.5fr 1.5fr 1fr; /*definování počtu a velikosti řádků gridu*/
+  column-gap: 15px;
+}
+
+.contacts-left-text {
+  margin: 0 15px 30px 0;
+}
+
+.contacts-right-text p {
+  margin-bottom: 15px;
+}
+
+.contacts-button {
+  align-self: center; /*zarovnání na střed vertikálně*/
+}
+
+.contacts-button p {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px 15px;
+  display: inline;
+  background-color: var(--text-color-light);
+  border: 2px solid;
+  border-radius: 5px;
+}
+
+.contacts-button a:link,
+.contacts-button a:visited {
+  /*nastavení link a visited pro button*/
+  text-decoration: none;
+  color: var(--anchor-color-2);
+  border-bottom: 2px solid transparent;
+}
+
+.contacts-button a:hover,
+.contacts-button a:active {
+  /*nastavení hoveru a active pro button*/
+  border-bottom: 2px solid var(--anchor-color-2);
+  transition: border-bottom 0.8s;
+}
+
+@media (min-width: 768px) {
+  .contact-wrapper {
+    width: 70%; /*určení šířky obsahu*/
+    margin: 0 auto; /*zarovnání obsahu na střed*/
+    display: grid;
+    grid-template-columns: 1fr 2fr; /*definování počtu a velikosti sloupců gridu*/
+    grid-template-rows: 1fr 1fr; /*definování počtu a velikosti řádků gridu*/
+    grid-template-areas: /*definice rozdělení dětí drigu do areas*/
+      "left right"
+      "left button";
+    column-gap: 15px;
+  }
+
+  .contacts-left-text {
+    /*zarování textu doleva + určení umístění textu do grid area*/
+    grid-area: left;
+    text-align: left;
+    margin-right: 15px;
+  }
+
+  .contacts-right-text {
+    /*určení umístění textu do grid area*/
+    grid-area: right;
+  }
+
+  .contacts-button {
+    grid-area: button; /*určení umístění textu do grid area*/
+    align-self: center; /*zarovnání na střed vertikálně*/
+  }
+
+  .contacts-button p {
+    text-transform: uppercase; /*zvětšení písma na velká písmena*/
+    font-weight: bold;
+    padding: 10px 15px;
+    display: inline;
+    background-color: var(--text-color-light);
+    border: 2px solid;
+    border-radius: 5px;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+/* REVIEWS */
+.reviews-wrapper {
+  width: 70%; /*určení šířky obsahu*/
+  margin: 0 auto; /*zarovnání obsahu na střed*/
+}
+
+.reviews-first-block {
+  text-align: center;
+}
+
+.reviews-first-block h2 {
+  text-align: center;
+  margin: 50px 0 20px 0;
+}
+
+.reviews-second-block {
+  display: flex;
+  flex-wrap: wrap; /*zalamování flexboxu na další řádky*/
+  row-gap: 30px;
+  margin-top: 30px;
+}
+
+.review-1,
+.review-2 {
+  display: flex;
+  flex-direction: column; /*změna řazení flexboxu*/
+  align-items: center;
+}
+
+.reviews-second-block img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 15px 0 15px 0;
+}
+
+.reviews-second-block p {
+  text-align: center;
+}
+
+.reviews-second-block .author {
+  padding: 20px 0;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .reviews-first-block {
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+  }
+
+  .reviews-second-block {
+    flex-wrap: nowrap; /*zakázání zalamování flexboxu na další řádky*/
+    column-gap: 150px;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+/* GALLERY */
+.gallery-wrapper {
+  width: 100%; /*určení šířky obsahu*/
+  margin: 0 auto; /*zarovnání obsahu na střed*/
+}
+
+.gallery-images {
+  display: grid;
+  grid-template-rows: repeat(
+    4,
+    1fr
+  ); /*definování počtu a velikosti řádků gridu*/
+  grid-template-columns: 1fr; /*definice počtu a velikosti sloupců gridu*/
+  place-items: center;
+}
+
+.gallery-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .gallery-images {
+    grid-template-rows: repeat(
+      2,
+      1fr
+    ); /*definování počtu a velikosti řádků gridu*/
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /*definice počtu a velikosti sloupců gridu*/
+  }
+}
+
+/* FOOTER */
+
+footer {
+  background-color: var(--footer-background-color);
+  color: var(--text-color-light);
+  padding: 30px 0 30px 0;
+}
+
+.footer-container {
+  width: 100%; /*určení šířky obsahu*/
+  margin: 0 auto; /*zarovnání obsahu na střed*/
+}
+
+.footer-contact {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.footer-contact a {
+  text-decoration: underline;
+  font-weight: bold;
+  display: inline;
+}
+
+.footer-contact a:link,
+.footer-contact a:visited {
+  /*nastavení linku a visited pro položky footeru*/
+  color: var(--anchor-color-1);
+}
+
+.footer-contact a:hover,
+.footer-contact a:active {
+  /*nastavení hoveru a active pro položky footeru*/
+  color: var(--anchor-color-2);
+  text-decoration: none;
+}
+
+.footer-copyright p {
+  font-weight: bold;
+  text-align: center;
+}
